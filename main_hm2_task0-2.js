@@ -19,8 +19,8 @@ const player2 = {
 };
 ////
 
-//Task #3
-function createPlayer(playerClass, player) {
+//Task #1
+function createPlayer(playerClass, playerName, playerHp) {
 	const $player = document.createElement('div');
 	$player.classList.add(playerClass);
 
@@ -32,14 +32,13 @@ function createPlayer(playerClass, player) {
 
 	const $life = document.createElement('div');
 	$life.classList.add('life');
-	$life.innerText = player.hp;
 
 	const $name = document.createElement('div');
 	$name.classList.add('name');
-	$name.innerText = player.name;
+	$name.innerText = playerName;
 
 	const $img = document.createElement('img');
-	$img.src = player.img;
+	$img.src = 'http://reactmarathon-api.herokuapp.com/assets/' + playerName.toLowerCase() + '.gif';
 
 
 	$progressbar.appendChild($life);
@@ -49,9 +48,11 @@ function createPlayer(playerClass, player) {
 	$player.appendChild($progressbar);
 	$player.appendChild($character);
 
-	document.querySelector('div.arenas').appendChild($player);
+	document.querySelector('div.arenas').appendChild($player); //Task #2
 }
+////
 
-createPlayer('player1', player1);
-createPlayer('player2', player2);
+//Task #2
+createPlayer('player1', 'Kitana', 90);
+createPlayer('player2', 'Liukang', 60);
 ////
